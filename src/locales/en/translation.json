@@ -1,0 +1,27 @@
+{
+    "login": "Please log in to see user info.",
+    "review": "Please login to leave a review!",
+    "logout": "Logout",
+    "search": "Search",
+    "searchPlaceholder": "Search",
+    "loginGitHub": "Login with GutHub",
+    "loginGoogle": "Login with Google",
+    "latest": "Latest Reviews",
+    "popular": "Popular Reviews",
+    "tags": "Tags",
+    "comments": "Comments",
+    "submit": "Submit",
+    "createReview": "Create a review!",
+    "artPiecePrompt": "Type to find an art piece to review or create a new one:",
+    "newArtPiece": "New Art Piece Name:",
+    "artPieceReleaseData": "Release Date:",
+    "artPieceCategory": "Category:",
+    "artPieceCreate": "Create Art Piece",
+    "selectedArtPiece": "Selected Art Piece:",
+    "reviewTitlePrompt": "Your Review Title:",
+    "reviewPrompt": "Your Review:",
+    "tagsPrompt": "Tags:",
+    "imagePrompt": "Upload an image to go with your review",
+    "reviewSubmit": "Sumbit Review"
+  }
+  

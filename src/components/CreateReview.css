@@ -1,0 +1,31 @@
+.uploaded-image {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+  }
+  
+  .uploaded-image img {
+    max-width: 150px;
+    max-height: 150px;
+    border: 1px solid #ccc;
+  }
+  
+  .delete-image-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border: none;
+    cursor: pointer;
+    display: none;
+    z-index: 1;
+  }
+  
+  .uploaded-image:hover .delete-image-btn {
+    display: block;
+  }
+  

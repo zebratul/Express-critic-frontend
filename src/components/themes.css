@@ -1,0 +1,19 @@
+body {
+  --bg-color: #0D6EFD;
+  --text-color: #f1f1f1;
+
+}
+
+body.dark-mode {
+  --bg-color: #333333;
+  --text-color: #f1f1f1;
+
+}
+
+.header-theme.header-bg {
+  background-color: var(--bg-color);
+}
+
+.header-theme.header-text {
+  color: var(--text-color);
+}

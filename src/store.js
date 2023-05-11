@@ -1,11 +1,7 @@
-import { applyMiddleware, combineReducers } from 'redux';
+// store.js
 import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
-import reviewReducer from './reducers/reviewReducer';
-
-const rootReducer = combineReducers({
-  reviews: reviewReducer,
-});
+import rootReducer from './reducers'; // Import the rootReducer from the reducers folder
 
 const store = configureStore({
   reducer: rootReducer,
