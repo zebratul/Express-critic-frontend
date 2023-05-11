@@ -25,6 +25,8 @@
     "imagePrompt": "Suba una imagen para acompañar su reseña",
     "reviewSubmit": "Enviar reseña",
     "close": "Cerrar",
-    "language": "Idioma"
+    "language": "Idioma",
+    "myReviews": "Mis reseñas",
+    "deleteReviewConfirmation": "¿Seguro que quieres eliminar esta crítica?"
   }
   

@@ -92,7 +92,7 @@ export const createComment = (reviewId, text) => async (dispatch) => {
 
 export const rateArtPiece = (artPieceId, rating) => async (dispatch, getState) => {
   try {
-    const { data } = await axiosInstance.post(`/api/art-pieces/${artPieceId}/rating`, { rating });
+    const { data } = await axiosInstance.post(`/api/reviews/${artPieceId}/rating`, { rating });
 
     dispatch({ type: RATE_ART_PIECE, payload: { artPieceId, ratedArtPiece: data } });
   } catch (error) {

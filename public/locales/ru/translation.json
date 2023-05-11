@@ -25,6 +25,8 @@
     "imagePrompt": "Загрузите изображение для вашего отзыва",
     "reviewSubmit": "Отправить отзыв",
     "close": "Закрыть",
-    "language": "Язык"
+    "language": "Язык",
+    "myReviews": "Мои отзывы",
+    "deleteReviewConfirmation": "Вы уверены что хотите удалить отзыв?"
   }
   

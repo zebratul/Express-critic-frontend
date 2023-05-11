@@ -140,16 +140,15 @@ const ReviewCard = ({ review }) => {
   
 
   const averageRating = () => {
-    if (review.ratings.length === 0) {
-      return 'votes N/A yet, be first to vote!';
+    if (review.art_piece.ratings.length === 0) {
+      return '0';
     }
   
-    const totalRatings = review.ratings.reduce((sum, rating) => sum + rating.rating, 0);
-    const average = totalRatings / review.ratings.length;
+    const totalRatings = review.art_piece.ratings.reduce((sum, rating) => sum + rating.rating, 0);
+    const average = totalRatings / review.art_piece.ratings.length;
     return average.toFixed(1) + "/5";
   };
-  
-  
+    
   const renderStars = (grade) => {
     const stars = [];
     for (let i = 1; i <= 10; i++) {
