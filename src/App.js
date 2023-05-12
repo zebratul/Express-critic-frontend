@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Router, Route, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';

@@ -6,6 +6,7 @@ import { authUser } from '../actions/authActions';
 import { showCreateReviewModal } from '../actions/modalActions';
 import { Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import './LoginForm.css'; 
 const CLIENT_ID = "caff724c0888235e5fe8";
 
 
@@ -72,8 +73,7 @@ const LoginForm = () => {
       <>
         {user ? (
           <div>
-            <h2>Сделать:<br/><br/>админку<br/>редактирование<br/>роутер<br/><br/>Починить:<br/>поиск<br/>голосование пользователя<br/>пажинация</h2>
-            <Button variant="info" onClick={handleOpenCreateReview}>{t('createReview')}</Button>
+            <Button className="create-review-btn" variant="info" onClick={handleOpenCreateReview}>{t('createReview')}</Button>
           </div>
           
         ) : (

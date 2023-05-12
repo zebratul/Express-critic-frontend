@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Dropdown } from 'react-bootstrap';
 import i18n from '../i18n';
 import { FiSun, FiMoon } from 'react-icons/fi';
+import  './appName.css';
 
 const Header = () => {
   const { t } = useTranslation();
@@ -58,68 +59,68 @@ const Header = () => {
   }, [searchResults]);
 
   return (
-    <div className="header">
-      <header
-        className="p-3 header-theme header-bg header-text"
-        style={{
-          backgroundColor: theme === 'light' ? 'var(--bg-color)' : 'var(--bg-color-dark)',
-          color: theme === 'light' ? 'var(--text-color)' : 'var(--text-color-dark)',
-        }}
-      >
-      {user ? (
-        <div className="d-flex align-items-center">
-          <img
-            src={user.picture}
-            alt={user.username}
-            className="rounded-circle me-2"
-            width="40"
-            height="40"
-          />
-          <span className="me-3">{user.username}</span>
-          <button className="btn btn-outline-light" onClick={handleLogout}>
-            {t('logout')}
-          </button>
-          <button className="btn btn-outline-light" onClick={printUserinfo}>
-            Userinfo
-          </button>
-          <Dropdown>
-            <Dropdown.Toggle className="btn btn-outline-light me-3" variant="outline-light" id="dropdown-basic">
-              {t('language')}
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={() => handleLanguageChange('en')}>English</Dropdown.Item>
-              <Dropdown.Item onClick={() => handleLanguageChange('ru')}>Русский</Dropdown.Item>
-              <Dropdown.Item onClick={() => handleLanguageChange('es')}>Español</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          
-          <button
-              className="btn btn-outline-light me-3"
-              onClick={() => handleThemeChange(theme === 'light' ? 'dark' : 'light')}
-            >
-              {theme === 'light' ? <FiSun /> : <FiMoon />}
-            </button>
-        </div>
-      ) : (
-        <p>{t('login')}</p>
-      )}
-      <form className="d-flex mt-2" onSubmit={handleSearch}>
-        <input
-          className="form-control me-2"
-          type="search"
-          placeholder={t('searchPlaceholder')}
-          aria-label="Search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button className="btn btn-outline-light" type="submit">
-          {t('search')}
-        </button>
-      </form>
-    </header>
-    </div>
+      <div className="header">
+          <header
+              className="p-3 header-theme header-bg header-text"
+              style={{
+                  backgroundColor: theme === 'light' ? 'var(--bg-color)' : 'var(--bg-color-dark)',
+                  color: theme === 'light' ? 'var(--text-color)' : 'var(--text-color-dark)',
+              }}
+          >
+          <div className="d-flex justify-content-between align-items-center w-100">
+          <div className="app-name">
+              <h3>Express Critic</h3>
+          </div>
+          {user ? (
+              <div className="d-flex align-items-center">
+                  <img
+                      src={user.picture}
+                      alt={user.username}
+                      className="rounded-circle me-2"
+                      width="40"
+                      height="40"
+                  />
+                  <span className="me-3">{user.username}</span>
+                  <button className="btn btn-outline-light" onClick={handleLogout}>
+                      {t('logout')}
+                  </button>
+                  <Dropdown>
+                      <Dropdown.Toggle className="btn btn-outline-light me-3" variant="outline-light" id="dropdown-basic">
+                          {t('language')}
+                        </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                          <Dropdown.Item onClick={() => handleLanguageChange('en')}>English</Dropdown.Item>
+                          <Dropdown.Item onClick={() => handleLanguageChange('ru')}>Русский</Dropdown.Item>
+                          <Dropdown.Item onClick={() => handleLanguageChange('es')}>Español</Dropdown.Item>
+                      </Dropdown.Menu>
+                  </Dropdown>
+                <button
+                    className="btn btn-outline-light me-3"
+                    onClick={() => handleThemeChange(theme === 'light' ? 'dark' : 'light')}
+                  >
+                    {theme === 'light' ? <FiSun /> : <FiMoon />}
+                  </button>
+              </div>
+          ) : (
+              <p>{t('login')}</p>
+          )}
+          </div>
+          <form className="d-flex mt-2" onSubmit={handleSearch}>
+              <input
+                  className="form-control me-2"
+                  type="search"
+                  placeholder={t('searchPlaceholder')}
+                  aria-label="Search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+              />
+              <button className="btn btn-outline-light" type="submit">
+                  {t('search')}
+              </button>
+          </form>
+        </header>
+      </div>
   );
-  
 };
 
 export default Header;

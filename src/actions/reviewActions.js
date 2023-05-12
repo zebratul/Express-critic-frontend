@@ -51,6 +51,7 @@ export const fetchMyReviews = (userId, page, limit) => async (dispatch) => {
     console.log(userId);
     dispatch(setReviewsLoading(true));
     const response = await axiosInstance.get(`/api/reviews/myreviews?userId=${userId}&page=${page}&limit=${limit}`);
+    console.log("received my reviews:", response.data.data);
     dispatch({ 
       type: FETCH_MY_REVIEWS, 
       payload: {
@@ -92,9 +93,13 @@ export const createComment = (reviewId, text) => async (dispatch) => {
 
 export const rateArtPiece = (artPieceId, rating) => async (dispatch, getState) => {
   try {
+    const userId = getState().auth.user.id;
     const { data } = await axiosInstance.post(`/api/reviews/${artPieceId}/rating`, { rating });
 
-    dispatch({ type: RATE_ART_PIECE, payload: { artPieceId, ratedArtPiece: data } });
+    dispatch({
+      type: RATE_ART_PIECE,
+      payload: { artPieceId, ratedArtPiece: data, userId },
+    });
   } catch (error) {
     console.error('Error rating art piece:', error);
   }

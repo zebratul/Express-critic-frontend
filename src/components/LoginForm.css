@@ -1,0 +1,16 @@
+.create-review-btn {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.3rem;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    color: #ffffff;
+  }
+  
+  .create-review-btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    cursor: pointer;
+  }
+  

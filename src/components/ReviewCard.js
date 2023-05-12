@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 const ReviewCard = ({ review }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const { art_piece } = review;
   const [showComments, setShowComments] = useState(false);
   const [isReviewLiked, setIsReviewLiked] = useState(false);
   const [currentUserRating, setCurrentUserRating] = useState(null);
@@ -25,10 +26,10 @@ const ReviewCard = ({ review }) => {
 
   useEffect(() => {
     setIsReviewLiked(hasUserLikedReview());
-    setLikeCount(review.liked_by_users.length); 
-    setCurrentUserRating(getCurrentUserRating()); 
-  }, [userInfo, review]);
-
+    setLikeCount(review.liked_by_users.length);
+    setCurrentUserRating(getCurrentUserRating());
+  }, [userInfo, review, art_piece]);
+  
   const handleRating = async (rating) => {
     if (userInfo) {
       await dispatch(rateArtPiece(review.art_piece.id, rating));
@@ -95,10 +96,10 @@ const ReviewCard = ({ review }) => {
 
   const getCurrentUserRating = () => {
     if (!userInfo) return false;
-    const userRating = review.ratings.find((rating) => rating.user_id === userInfo.id);
+    const userRating = art_piece.ratings.find((rating) => rating.user_id === userInfo.id);
     return userRating ? userRating.rating : null;
   };
-
+  
   const handleLike = () => {
     if (userInfo) {
       dispatch(toggleReviewLike(review.id));

@@ -18,13 +18,13 @@ const initialState = {
 
 const reviewReducer = (state = initialState, action) => {
   switch (action.type) {
-      case FETCH_REVIEWS:
-          return {
-              ...state,
-              reviews: [...state.reviews, ...action.payload.data],
-              totalReviews: action.payload.totalReviews,
-              hasMoreData: action.payload.hasMoreData,
-          };
+        case FETCH_REVIEWS:
+            return {
+                ...state,
+                reviews: [...state.reviews, ...action.payload.data],
+                totalReviews: action.payload.totalReviews,
+                hasMoreData: action.payload.hasMoreData,
+            };
       case TOGGLE_REVIEW_LIKE:
           const { reviewId: likeReviewId, likedReview } = action.payload;
           return {
@@ -44,15 +44,27 @@ const reviewReducer = (state = initialState, action) => {
               ),
           };
       case RATE_ART_PIECE:
-          const { artPieceId, ratedArtPiece } = action.payload;
-              return {
-                  ...state,
-                    reviews: state.reviews.map((review) =>
-                      review.art_piece.id === artPieceId
-                        ? { ...review, art_piece: { ...review.art_piece, ratings: ratedArtPiece.ratings } }
-                        : review
-                  ),
-              };
+          const { artPieceId, ratedArtPiece, userId } = action.payload;
+          return {
+              ...state,
+              reviews: state.reviews.map((review) =>
+                  review.art_piece.id === artPieceId
+                      ? {
+                          ...review,
+                          art_piece: {
+                              ...review.art_piece,
+                              ratings: ratedArtPiece.ratings,
+                          },
+                          ratings: review.ratings.filter(
+                              (rating) => rating.user_id !== userId
+                          ).concat({
+                              user_id: userId,
+                              rating: ratedArtPiece.userRating,
+                          }),
+                      }
+                      : review
+              ),
+          };
       case TOGGLE_COMMENT_LIKE:
           const { reviewId: likeCommentReviewId, commentId, likedComment } = action.payload;
               return {
@@ -76,7 +88,7 @@ const reviewReducer = (state = initialState, action) => {
       case FETCH_MY_REVIEWS:
           return {
               ...state,
-              reviews: [...state.reviews, ...action.payload.data],
+              myReviews: [...state.myReviews, ...action.payload.data],
               totalReviews: action.payload.totalReviews,
               hasMoreData: action.payload.hasMoreData,
           };
